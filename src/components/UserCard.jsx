@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from "axios"
 
-const UserCard = ({ user, getAllUsers }) => {
+const UserCard = ({ user, getAllUsers, updateUserById,setUpdateInfo }) => {
   
   const deleteUserById = () => {
     
@@ -10,6 +10,10 @@ const UserCard = ({ user, getAllUsers }) => {
       .then(res => getAllUsers())
       .catch(err => console.log(err))
   } 
+
+  const handleUpdate = () => {
+    setUpdateInfo(user)
+  }
 
   return (
     <article className="user-card">
@@ -23,7 +27,7 @@ const UserCard = ({ user, getAllUsers }) => {
         <li><span>Birthday:</span>{user.birthday}</li>
       </ul>
       <footer>
-        <button className="user-card__edit">
+        <button onClick={handleUpdate} className="user-card__edit">
           <i className="fa-solid fa-pen-to-square"></i>
         </button>
         <button onClick={deleteUserById} className="user-card__delete">

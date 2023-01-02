@@ -8,6 +8,7 @@ import UserCard from './components/UserCard'
 function App() {
 
   const [users, setUsers] = useState()
+  const [updateInfo, setUpdateInfo] = useState()
 
   const getAllUsers = () => {
     const URL = "http://users-crud.academlo.tech/users/"
@@ -21,6 +22,16 @@ function App() {
   useEffect(() => {
     getAllUsers()
   }, [])
+
+  const updateUserById = (data) => {
+    const id = data.id
+    const URL = `http://users-crud.academlo.tech/users/${id}/`
+
+    axios.patch(URL, data)
+      .then(res => getAllUsers())
+      .catch(err => console.log(err))
+  }
+
   
   const createUser = (data) => {
     const URL = "http://users-crud.academlo.tech/users/"
@@ -30,7 +41,6 @@ function App() {
       .catch(err => console.log(err)) 
   }
 
-  console.log(users)
   return (
     <div className="App">
       <h1>Users</h1>
@@ -38,6 +48,9 @@ function App() {
       <div className="form-container">
         < FormUser
           createUser={createUser}
+          updateInfo={updateInfo}
+          updateUserById={updateUserById}
+          
         />
       </div>
 
@@ -48,6 +61,7 @@ function App() {
               user={user}
               key={user.id}
               getAllUsers={getAllUsers}
+              setUpdateInfo={setUpdateInfo}
             />
           ))
         }

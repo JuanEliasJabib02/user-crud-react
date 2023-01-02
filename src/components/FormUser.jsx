@@ -1,17 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from "react-hook-form"
 
 
 
-const FormUser = ({ createUser }) => {
+const FormUser = ({ createUser, updateInfo,updateUserById }) => {
 
-  const {handleSubmit, reset,register} =useForm()
+  const { handleSubmit, reset, register } = useForm()
+  
+
   
   const submit = (data) => {
-     createUser(data) 
+
+    if (updateInfo) {
+      return updateUserById(data)
+    }
+
+      createUser(data) 
+      reset({
+        email: "",
+        password: "",
+        first_name: "",
+        last_name: "",
+        birthday:""
+      })
   }
 
-  
+  useEffect(() => {
+    reset(updateInfo)
+  },[updateInfo])
+
+
 
   return (
     <form onSubmit={handleSubmit(submit)} action="">
