@@ -1,10 +1,46 @@
+.App h1 {
+  font-size: 5rem;
+  text-align: center;
+  padding: 3rem;
+}
+
+.App__btn {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5em 2em;
+  background-color: #555A88;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+}
+
+
 .card-container {
   display: flex;
   width: 100%;
   max-width: 120rem;
-  border: 0.5rem solid green;
   gap: 2em;
   justify-content: center;
   margin: 0 auto;
   flex-wrap: wrap;
+}
+
+.form-container {
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0002;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(0.2rem);
+}
+
+
+.close__form {
+  transform: translateX(-100%)
 }

@@ -10,6 +10,7 @@ function App() {
   const [users, setUsers] = useState()
   const [updateInfo, setUpdateInfo] = useState()
 
+  const [openForm, setOpenForm] = useState(false)
   const getAllUsers = () => {
     const URL = "http://users-crud.academlo.tech/users/"
 
@@ -35,21 +36,32 @@ function App() {
   
   const createUser = (data) => {
     const URL = "http://users-crud.academlo.tech/users/"
-    console.log(data)
     axios.post(URL, data)
       .then(res => getAllUsers())
       .catch(err => console.log(err)) 
   }
 
+  useEffect(() => {
+    
+  })
+
+  const OpenCloseForm = () => {
+    setOpenForm(true)
+  }
+
+
+
+  console.log(openForm)
   return (
     <div className="App">
-      <h1>Users</h1>
-      <button>OPEN FORM</button>
-      <div className="form-container">
+      <h1>User-Crud Axios</h1>
+      <button className="App__btn" onClick={OpenCloseForm}>Open Form</button>
+      <div className={`form-container ${openForm ? "open__form":"close__form"}`}>
         < FormUser
           createUser={createUser}
           updateInfo={updateInfo}
           updateUserById={updateUserById}
+          setOpenForm={setOpenForm}
           
         />
       </div>

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import "./styles/formUser.css"
 
 
-const FormUser = ({ createUser, updateInfo,updateUserById }) => {
+const FormUser = ({ createUser, updateInfo,updateUserById, setOpenForm }) => {
 
   const { handleSubmit, reset, register } = useForm()
   
@@ -14,7 +14,6 @@ const FormUser = ({ createUser, updateInfo,updateUserById }) => {
     if (updateInfo) {
       return updateUserById(data)
     }
-
       createUser(data) 
       reset({
         email: "",
@@ -23,6 +22,7 @@ const FormUser = ({ createUser, updateInfo,updateUserById }) => {
         last_name: "",
         birthday:""
       })
+      setOpenForm(false)
   }
 
   useEffect(() => {
@@ -33,6 +33,7 @@ const FormUser = ({ createUser, updateInfo,updateUserById }) => {
 
   return (
     <form className='form' onSubmit={handleSubmit(submit)} action="">
+      <button type='button' className='form__close' onClick={() => setOpenForm(false)}>x</button>
       <h2 className='form__title'>Create User</h2>
       <div className="form__div">
         <label className='form__label' htmlFor="email">
@@ -44,7 +45,7 @@ const FormUser = ({ createUser, updateInfo,updateUserById }) => {
         <label className='form__label' htmlFor="password">
           Password
         </label>
-        <input  className="form__input"id="password" type="text" {...register("password")} />
+        <input  className="form__input"id="password" type="password" {...register("password")} />
       </div>
       <div className="form__div">
         <label  class ="form__label"htmlFor="first_name">

@@ -1,8 +1,9 @@
 .form {
   width: 100%;
   max-width: 35rem;
-  border: 0.5rem solid black;
-  padding: 1.5em
+  padding: 1.5em;
+  background-color: white;
+  position: relative;
 }
 
 .form__title {
@@ -44,4 +45,20 @@
 
 .form__submit-btn:hover {
   filter: brightness(1.2);
+}
+
+.form__close {
+  position: absolute;
+  right: 3rem;
+  font-size: 2rem;
+  color: red;
+  top: 0.5em;
+  cursor: pointer;
+  transition: transform 100ms ease;
+  font-weight: 700;
+  background-color: white;
+}
+
+.form__close:hover {
+  transform: scale(1.2);
 }
