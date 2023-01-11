@@ -1,0 +1,68 @@
+.user-card {
+  border: 0.1rem solid #aaa7;
+  border-radius: 0.5em;
+  width: 100%;
+  max-width: 25rem;
+  padding: 1.2rem;
+}
+
+
+.user-card__name {
+  margin-bottom: 0.5em;
+  font-size: 1.6rem
+}
+
+
+.user-card__list {
+  display: grid;
+  gap: 0.5rem
+}
+
+.user-card__list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em
+}
+
+.user-card__list-item span {
+  text-transform: uppercase;
+  color: #aaa;
+  font-size: 1rem;
+  position: relative;
+  left: 0.8em;
+}
+
+.user-card__list-item p {
+  font-size: 1.5rem;
+}
+
+
+.user-card__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2em
+}
+
+
+.user-card__footer button {
+  font-size: 1.9rem;
+  padding: 0.2em;
+  border-radius: 0.2em;
+  width: 3rem;
+  aspect-ratio: 0.9;
+}
+
+.user-card__footer button:hover {
+  box-shadow: 0 0 0.4em #0004;
+  transition: box-shadow 100ms ease;
+}
+
+.user-card__edit {
+  color: #aaa;
+  border: 0.1rem solid currentColor
+}
+
+.user-card__delete {
+  background-color: #D85D5D;
+  color: white
+}
